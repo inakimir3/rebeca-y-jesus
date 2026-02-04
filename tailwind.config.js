@@ -4,9 +4,9 @@ export default {
   theme: {
     extend: {
       colors: {
-        primary: '#FAF5EB',
-        secondary: '#BF9E82',
-        accent: '#787878',
+        primary: '#FFFCF5',
+        secondary: '#3D0418',
+        accent: '#4F4F4F',
       },
       fontFamily: {
         inter: ['Inter Variable'],
