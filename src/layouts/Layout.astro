@@ -1,0 +1,33 @@
+---
+import '@fontsource-variable/inter';
+import '@fontsource-variable/cormorant-garamond';
+import '@fontsource-variable/eb-garamond';
+import '@fontsource-variable/cormorant-infant';
+import '@fontsource/alex-brush';
+import Analytics from '@vercel/analytics/astro'
+
+---
+<!doctype html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>Rebeca & Jesús</title>
+	</head>
+	<body class="bg-primary text-secondary">
+		<slot />
+		<Analytics/>
+	</body>
+</html>
+
+<style>
+	html,
+	body {
+		margin: 0;
+		width: 100%;
+		height: 100%;
+		overflow-x: hidden;
+	}
+</style>

@@ -1,0 +1,73 @@
+---
+---
+<section class="overflow-hidden relative bg-secondary text-accent w-full flex flex-col items-center gap-12 justify-center px-5 lg:px-0 py-10 lg:py-20">
+    <h2 class=" font-bold relative text-primary font-infant text-[40px] lg:text-[64px] text-center w-full">CONFIRMAR ASISTENCIA</h2>
+  <form 
+    id="contact-form" 
+    class="lg:w-[750px] w-full relative bg-primary px-5 py-10 lg:px-10 flex flex-col gap-12 rounded-[20px] lg:rounded-[32px] font-inter" 
+    method="POST" 
+    action="https://sheetdb.io/api/v1/yb6i7a310ib8x" 
+    target="hidden_iframe"
+  >
+    <div class="flex flex-col gap-4">
+        <h3 class="font-infant text-[20px] lg:text-[28px]">Nombre completo *</h3>
+        <input type="text" name="Nombre" placeholder="Escribe tu nombre" required class=" border-b-2 border-accent bg-transparent">
+    </div>
+    <div class="flex flex-col gap-2">
+        <h3 class="font-infant text-[20px] lg:text-[28px]">Restricciones alimenticias, alergias o intolerancias</h3>
+        <input type="text" name="Intolerancias" placeholder="Escribe tus intolerancias" class=" border-b-2 border-accent bg-transparent">
+    </div>
+    <div class="flex flex-col gap-2">
+        <h3 class="font-infant text-[20px] lg:text-[28px]">¿Vienes con acompañante?</h3>
+        <input type="text" name="Acompanante" placeholder="Escribe el nombre del acompañante" class=" border-b-2 border-accent bg-transparent">
+    </div>
+    <div class="flex flex-col gap-2">
+        <h3 class="font-infant text-[20px] lg:text-[28px]">¿Qué canción no debe faltar?</h3>
+        <input type="text" name="Cancion" placeholder="Escribe una canción" class=" border-b-2 border-accent bg-transparent">
+    </div>
+    <div class="flex flex-col gap-2">
+        <h3 class="font-infant text-[20px] lg:text-[28px]">¿Vas a venir en autobús?</h3>
+        <input type="text" name="Autobus" placeholder="Escribe si vas a venir en autobús" class=" border-b-2 border-accent bg-transparent">
+    </div>
+    
+    
+    <button 
+      type="submit" 
+      id="submit-button"
+      class="bg-secondary text-primary px-6 mt-6 py-3 rounded-full font-semibold hover:opacity-80 transition-colors duration-200"
+      >
+      <span id="button-text">CONFIRMAR ASISTENCIA</span>
+    </button>
+  
+    <p id="form-status" class="font-infant text-[24px] w-full text-center mt-2"></p>
+  </form>
+
+  <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe>
+
+  
+  <script type="module">
+    const form = document.getElementById('contact-form');
+    const status = document.getElementById('form-status');
+    const iframe = document.getElementById('hidden_iframe');
+    const submitButton = document.getElementById('submit-button');
+    const buttonText = document.getElementById('button-text');
+
+    form.addEventListener('submit', () => {
+      submitButton.classList.remove('bg-secondary');
+      submitButton.classList.add('bg-accent');
+      buttonText.textContent = "ENVIANDO...";
+      submitButton.disabled = true;
+      status.textContent = "";
+    });
+
+    iframe.addEventListener('load', () => {
+      submitButton.classList.remove('bg-accent');
+      submitButton.classList.add('bg-secondary');
+      buttonText.textContent = "CONFIRMAR ASISTENCIA";
+      submitButton.disabled = false;
+      status.textContent = "¡Confirmación recibida!.";
+      status.style.color = "green";
+      form.reset();
+    });
+  </script>
+</section>
